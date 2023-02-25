@@ -1,0 +1,172 @@
+# Set modifiers
+set $mod Mod4
+set $mod1 Mod1
+
+# Set terminal
+set $terminal kitty
+
+# i3-gaps
+gaps inner 10
+gaps outer 4
+default_border pixel 4
+
+# Set colors
+set $bg-color #333333
+set $inactive-bg-color #333333
+set $text-color #f3f4f5
+set $inactive-text-color #676e7d
+set $urgent-bg-color #e53935
+set $focus-text-color $87ceeb
+
+# Set window colors (border, bg, text, indicator, ch-border)
+client.focused #EB6F92 #EB6F92 #EB6F92 #EB6F92 #EB6F92
+client.unfocused #EBBCBA #EBBCBA #EBBCBA #EBBCBA #EBBCBA
+client.urgent #F6C177 #F6C177 #F6C177 #F6C177 #F6C177
+
+set $black #222030
+set $darkblack #191724
+set $transparent #000000AA
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Start a terminal
+bindsym $mod+Return exec $terminal
+bindsym $mod+x exec $terminal
+
+# Kill the focused window
+bindsym $mod+Shift+k kill
+
+# Start launcher
+bindsym $mod+space exec "rofi -show drun"
+
+# Change focus (with cursor keys)
+bindsym $mod+Left focus left
+bindsym $mod+Right focus right
+bindsym $mod+Up focus up
+bindsym $mod+Down focus down
+
+# Move focused window (with cursor keys)
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Down move down
+
+# Split windows
+bindsym $mod+h split h
+bindsym $mod+v split v
+
+# Full screen the focused window
+bindsym $mod+f fullscreen toggle
+
+# Change layout
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+e layout toggle split
+
+# Toggle tiling/floating
+bindsym $mod+Shift+space floating toggle
+
+# Change focus between tiling/floating windows
+bindsym $mod+Shift+f focus mode_toggle
+
+# Workspace variables
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+
+# Switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+
+bindsym $mod+Ctrl+left workspace prev
+bindsym $mod+Ctrl+right workspace next
+
+# Move focused window to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+
+# Resize windows
+mode "resize" {
+  bindsym Left resize shrink width 10 px or 10 ppt
+  bindsym Right resize grow width 10px or 10 ppt
+  bindsym Up resize grow height 10px or 10 ppt
+  bindsym Down resize shrink height 10px or 10 ppt
+
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Setup lockscreen
+bindsym $mod+Shift+l exec swaylock -C $HOME/.config/swaylock/config
+
+# Pulse audio controls
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# Screen brightness controls
+bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
+
+# Setup screenshot controls
+bindsym $mod+p exec grim -g "$(slurp)" - | swappy -f -
+
+# Setup wallpaper
+output * bg ~/.wallpapers/1.jpg fill
+
+# Setup waybar
+bar {
+  swaybar_command waybar
+  workspace_buttons yes
+}
+
+# Startup programs
+exec --no-startup-id mpd
+exec --no-startup-id /usr/lib/gsd-xsettings
+
+# Floating windows
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_role="task_dialog|bubble|page-info|Preferences|pop-up"] floating enable
+for_window [window_role="Open Files"] floating enable
+for_window [window_role="File Operation Progress"] floating enable
+for_window [window_role="Save As"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+for_window [app_id="gnome-calendar"] floating enable
+
+# Focus window settings
+no_focus [window_role="pop-up"]
+focus_on_window_activation focus
+
+# Input configuration
+input "1:1:AT_Translated_Set_2_keyboard"
+{
+  xkb_layout es
+}
+
+# Reload sway configuration
+bindsym $mod+Shift+c reload
+
+# Restart sway in place
+bindsym $mod+Shift+r restart
+
+# Exit sway window manager
+bindsym $mod+Shift+e exec swaynag -t warning -m 'Do you really want to exit sway' -b 'Yes, exit sway' 'swaymsg exit'

@@ -1,0 +1,168 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: Liberation Mono;
+  min-height: 20px;
+}
+
+window#waybar {
+  background: transparent;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+#workspaces {
+  margin-right: 8px;
+  border-radius: 20px;
+  transition: none;
+  background: #191724;
+}
+
+#workspaces button {
+  transition: none;
+  color: #f5f5f5;
+  background: transparent;
+  padding: 5px;
+  font-size: 18px;
+}
+
+#workspaces button.persistent {
+  color: #f5f5f5;
+  font-size: 12px;
+}
+
+#workspaces button:hover {
+  transition: none;
+  box-shadow: inherit;
+  text-shadow: inherit;
+  border-radius: inherit;
+  color: white;
+  background: #eb6f92;
+}
+
+#workspaces button.focused {
+  transition: none;
+  box-shadow: inherit;
+  text-shadow: inherit;
+  border-radius: inherit;
+  color: white;
+  background: #eb6f92;
+}
+
+#language {
+  padding-left: 16px;
+  padding-right: 8px;
+  border-radius: 20px;
+  transition: none;
+  color: #ffffff;
+  background: #191724;
+}
+
+#mode {
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: 20px;
+  transition: none;
+  color: #ffffff;
+  background: #191724;
+}
+
+#clock {
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: 20px;
+  transition: none;
+  color: #ffffff;
+  background: #191724; 
+}
+
+#network {
+  margin-right: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: 20px;
+  transition: none;
+  color: #ffffff;
+  background: #191724;
+}
+
+#pulseaudio {
+  margin-right: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: 20px;
+  transition: none;
+  color: #ffffff;
+  background: #191724;
+}
+
+#pulseaudio.muted {
+  background-color: #eb6f92;
+  color: white;
+}
+
+#backlight {
+  margin-right: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: 20px;
+  transition: none;
+  color: #ffffff;
+  background: #191724;
+}
+
+#bluetooth { 
+  margin-right: 8px; 
+  padding-left: 16px; 
+  padding-right: 16px; 
+  border-radius: 20px; 
+  transition: none; 
+  color: #ffffff; 
+  background: #191724; 
+}
+
+#battery {
+  margin-right: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: 20px;
+  transition: none;
+  color: #ffffff;
+  background: #191724;
+}
+
+#battery.charging {
+  color: white;
+  background-color: #31748f;
+}
+
+#battery.warning:not(.charging) {
+  background-color: #eb6f92;
+  color: white;
+}
+
+#battery.critical:not(.charging) {
+  background-color: #eb6f92;
+  color: white;
+}
+
+#custom-power {
+  margin-right: 8px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: 20px;
+  transition: none;
+  color: #ffffff;
+  background: #191724;
+}
+
+#tray {
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: 10px;
+  transition: none;
+  color: #ffffff;
+  background: #191724;
+}

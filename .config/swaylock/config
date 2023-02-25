@@ -1,0 +1,10 @@
+# Background image
+image=~/.wallpapers/1.jpg
+scaling=fill
+
+# Indicator
+ignore-empty-password
+indicator-caps-lock
+
+# Behavior
+show-failed-attempts
