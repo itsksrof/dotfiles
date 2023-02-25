@@ -2,6 +2,8 @@
 
 This are the configuration files of my actual linux box.
 
+![Sway Desktop](desktop.png)
+
 ## DNF packages
 
 - gnome-tweaks
