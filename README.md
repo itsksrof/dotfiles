@@ -29,6 +29,7 @@ This are the configuration files of my actual linux box.
 - wl-clipboard
 - sway
 - fedy
+- swappy
 
 ## Flatpak packages
 
