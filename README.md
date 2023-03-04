@@ -32,12 +32,16 @@ This are the configuration files of my actual linux box.
 - sway
 - fedy
 - swappy
+- bison
 
 ## Flatpak packages
 
 - gradience
 - bitwarden
+- vscodium
 
 ## Extra packages
 
 - ohmyzsh
+- gvm
+- rustup
