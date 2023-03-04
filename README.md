@@ -39,6 +39,10 @@ This are the configuration files of my actual linux box.
 - gradience
 - bitwarden
 - vscodium
+- beekeeperstudio
+- discord
+- insomnia
+- spotify
 
 ## Extra packages
 
