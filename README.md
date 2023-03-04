@@ -44,13 +44,13 @@ This are the configuration files of my actual linux box.
 - insomnia
 - spotify
 
-## ZSH plugins
-
-- zsh-syntax-highlighting
-- zsh-autosuggestions
-
 ## Extra packages
 
 - ohmyzsh
 - gvm
 - rustup
+
+## ZSH plugins
+
+- zsh-syntax-highlighting
+- zsh-autosuggestions
