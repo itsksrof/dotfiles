@@ -43,6 +43,7 @@ This are the configuration files of my actual linux box.
 - discord
 - insomnia
 - spotify
+- obsidian
 
 ## Extra packages
 
